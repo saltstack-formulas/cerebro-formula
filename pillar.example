@@ -1,0 +1,30 @@
+cerebro:
+    # binaries
+    version: '0.6.5'
+    hash: 'e0fab203496c3216561070df0b2dbd90ade83dfa0dc2fb380a88369958dc1e28'
+    home: /opt/cerebro
+    # user
+    user: cerebro
+    group: cerebro
+    # config
+    secret: 'c@N8<xC@vCq!)&832BtF?`lRi+T)JjV_PT>=J@*g>8qPz->qdr7BKF~a:lG9Ux+T'
+    auth_ldap:
+        enabled: False
+        url: 'ldap://host:port'
+        base-dn: 'ou=active,ou=Employee'
+        method: simple
+        user-domain: domain.com
+    auth_basic:
+        enabled: False
+        username: admin
+        password: s3cr3t
+    hosts:
+        - name: "Some Cluster"
+          host: http://localhost:9200
+        - name: "Some Authenticated Cluster"
+          host: http://authenticated-localhost:9200
+          username: admin
+          password: s3cr3t
+    # service
+    service: cerebro
+    java_home: /path/to/java
