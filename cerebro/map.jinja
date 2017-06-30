@@ -1,0 +1,20 @@
+{% import_yaml "cerebro/defaults.yaml" as default_settings %}
+
+{% set os_family_map = salt['grains.filter_by']({
+        'Debian': {},
+        'Suse': {},
+        'Arch': {},
+        'RedHat': {},
+    },
+    grain="os_family",
+    merge=salt['pillar.get']('cerebro:lookup'))
+%}
+
+{% do default_settings.cerebro.update(os_family_map) %}
+
+{% set cerebro = salt['pillar.get'](
+        'cerebro',
+        default=default_settings.cerebro,
+        merge=True
+    )
+%}
