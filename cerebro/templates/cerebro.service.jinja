@@ -1,0 +1,21 @@
+[Unit]
+Description=Cerebro
+Documentation=https://github.com/lmenezes/cerebro
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+PIDFile={{ cerebro.home }}/cerebro.pid
+User={{ cerebro.user }}
+Group={{ cerebro.group }}
+{%- if cerebro.java_home %}
+Environment=JAVA_HOME={{ cerebro.java_home }}
+{%- endif %}
+ExecStart={{ cerebro.home }}/bin/cerebro -Dconfig.file={{ cerebro.home }}/conf/application.conf
+Restart=on-failure
+SyslogIdentifier={{ cerebro.service }}
+WorkingDirectory={{ cerebro.home }}
+
+[Install]
+WantedBy=multi-user.target
