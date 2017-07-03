@@ -6,7 +6,6 @@ After=network.target remote-fs.target
 
 [Service]
 Type=simple
-PIDFile={{ cerebro.home }}/cerebro.pid
 User={{ cerebro.user }}
 Group={{ cerebro.group }}
 {%- if cerebro.java_home %}
