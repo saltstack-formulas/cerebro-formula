@@ -2,7 +2,7 @@
 cerebro-formula
 ===============
 
-(devel)
+0.2.0 (2017-07-04)
 
 - Allow setting of listening port/address
 
