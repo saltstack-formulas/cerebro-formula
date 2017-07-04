@@ -16,5 +16,5 @@ cerebro_running:
     service.running:
         - name: {{ cerebro.service }}
         - enable: True
-        - require:
+        - watch:
             - file: cerebro_systemd_unit
