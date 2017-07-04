@@ -2,6 +2,10 @@
 cerebro-formula
 ===============
 
+(devel)
+
+- Allow setting of listening port/address
+
 0.1.0 (2017-06-30)
 
 - Added state to manage Cerebro user/group

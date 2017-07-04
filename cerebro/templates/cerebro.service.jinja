@@ -11,7 +11,10 @@ Group={{ cerebro.group }}
 {%- if cerebro.java_home %}
 Environment=JAVA_HOME={{ cerebro.java_home }}
 {%- endif %}
-ExecStart={{ cerebro.home }}/bin/cerebro -Dconfig.file={{ cerebro.home }}/conf/application.conf
+ExecStart={{ cerebro.home }}/bin/cerebro \
+    -Dconfig.file={{ cerebro.home }}/conf/application.conf \
+    -Dhttp.port={{ cerebro.port }} \
+    -Dhttp.address={{ cerebro.address }}
 Restart=on-failure
 SyslogIdentifier={{ cerebro.service }}
 WorkingDirectory={{ cerebro.home }}
