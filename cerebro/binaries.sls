@@ -1,5 +1,10 @@
 {% from 'cerebro/map.jinja' import cerebro with context %}
 
+cerebro_dependencies:
+    pkg.installed:
+        - pkgs:
+            - default-jre-headless
+
 cerebro_binaries:
     archive.extracted:
         - name: {{ cerebro.home }}
@@ -15,3 +20,5 @@ cerebro_binaries:
         - enforce_toplevel: False
         - user: {{ cerebro.user }}
         - group: {{ cerebro.group }}
+        - require:
+            - pkg: cerebro_dependencies
