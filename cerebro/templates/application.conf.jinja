@@ -26,9 +26,13 @@ auth = {
   type: ldap
   settings: {
     url = "{{ cerebro.auth_ldap.url }}"
-    base-dn = "{{ cerebro.auth_ldap.base-dn }}"
+    base-dn = "{{ cerebro.auth_ldap.base_dn }}"
     method = "{{ cerebro.auth_ldap.method }}"
-    user-doman = "{{ cerebro.auth_ldap.user-domain }}"
+    user-template = "{{ cerebro.auth_ldap.user_template }}"
+    bind-dn = "{{ cerebro.auth_ldap.bind_dn }}"
+    bind-pw = "{{ cerebro.auth_ldap.bind_pw }}"
+    group-search {
+    }
   }
     {%- endif %}
   {%- endif %}

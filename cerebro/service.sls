@@ -6,7 +6,7 @@ cerebro_systemd_unit:
         - source: salt://cerebro/templates/cerebro.service.jinja
         - template: jinja
         - context:
-            cerebro: {{ cerebro }}
+            cerebro: {{ cerebro|json }}
     module.run:
         - name: service.systemctl_reload
         - onchanges:
