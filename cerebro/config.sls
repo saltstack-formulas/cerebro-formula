@@ -6,7 +6,7 @@ config_cerebro:
         - source: salt://cerebro/templates/application.conf.jinja
         - template: jinja
         - context:
-            cerebro: {{ cerebro }}
+            cerebro: {{ cerebro|json }}
         - user: {{ cerebro.user }}
         - group: {{ cerebro.group }}
         - mode: 0755
